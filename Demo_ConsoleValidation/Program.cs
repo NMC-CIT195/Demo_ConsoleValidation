@@ -12,9 +12,6 @@ namespace Demo_ConsoleValidation
         {
         }
 
-        public static void GetIntegerFromUser()
-        {
 
-        }
     }
 }
