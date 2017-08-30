@@ -10,8 +10,26 @@ namespace Demo_ConsoleValidation
     {
         static void Main(string[] args)
         {
+            TestIntegerMethod();
         }
 
+        static void TestIntegerMethod()
+        {
+            bool validInput;
+            int userInteger;
 
+            userInteger = ConsoleValidator.GetIntegerFromUser(1, 10, 2, "Enter an integer.", out validInput);
+
+            if (validInput)
+            {
+                Console.WriteLine(userInteger);
+            }
+            else
+            {
+                Console.WriteLine("Invalid");
+            }
+
+            Console.ReadKey();
+        }
     }
 }

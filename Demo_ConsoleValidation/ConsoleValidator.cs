@@ -8,6 +8,15 @@ namespace Demo_ConsoleValidation
 {
     public static class ConsoleValidator
     {
+        /// <summary>
+        /// helper method to get a valid integer from the user
+        /// </summary>
+        /// <param name="minValue">inclusive mimimum value</param>
+        /// <param name="maxValue">inclusive maximum value</param>
+        /// <param name="maxAttempts">maximum number of attempts</param>
+        /// <param name="prompt">user prompt for integer value</param>
+        /// <param name="validInput">indicates valid user input</param>
+        /// <returns></returns>
         public static int GetIntegerFromUser(int minValue, int maxValue, int maxAttempts, string prompt, out bool validInput)
         {
             validInput = false;
@@ -49,6 +58,8 @@ namespace Demo_ConsoleValidation
                     Console.WriteLine("It appears you did not enter an integer. Please try again.");
                     Console.WriteLine();
                 }
+
+                attempts++;
             }
 
             return userInteger;
