@@ -11,5 +11,10 @@ namespace Demo_ConsoleValidation
         static void Main(string[] args)
         {
         }
+
+        public static void GetIntegerFromUser()
+        {
+
+        }
     }
 }
