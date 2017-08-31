@@ -15,18 +15,18 @@ namespace Demo_ConsoleValidation
 
         static void TestIntegerMethod()
         {
-            bool validInput;
+            bool maxAttemptsExceeded;
             int userInteger;
 
-            userInteger = ConsoleValidator.GetIntegerFromUser(1, 10, 2, "Enter an integer.", out validInput);
+            userInteger = ConsoleValidator.GetIntegerFromUser(1, 10, 2, "Enter an integer.", out maxAttemptsExceeded);
 
-            if (validInput)
+            if (!maxAttemptsExceeded)
             {
-                Console.WriteLine(userInteger);
+                Console.WriteLine($"You have entered {userInteger}.");
             }
             else
             {
-                Console.WriteLine("Invalid");
+                Console.WriteLine("It appears you have exceeded the maximum number of attempts allowed.");
             }
 
             Console.ReadKey();

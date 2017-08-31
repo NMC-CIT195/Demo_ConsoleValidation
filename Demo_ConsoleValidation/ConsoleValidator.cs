@@ -17,49 +17,69 @@ namespace Demo_ConsoleValidation
         /// <param name="prompt">user prompt for integer value</param>
         /// <param name="validInput">indicates valid user input</param>
         /// <returns></returns>
-        public static int GetIntegerFromUser(int minValue, int maxValue, int maxAttempts, string prompt, out bool validInput)
+        public static int GetIntegerFromUser(int minValue, int maxValue, int maxAttempts, string prompt, out bool maxAttemptsExceeded)
         {
-            validInput = false;
+            bool validInput = false;
+            maxAttemptsExceeded = false;
             string userResponse;
             int userInteger = 0;
             int attempts = 1;
 
-            while (!validInput && attempts <= maxAttempts)
-            {
-                Console.Write(prompt);
-                userResponse = Console.ReadLine();
-
+            while (!validInput && !maxAttemptsExceeded)
+            {   
                 //
-                // input is an Integer
+                // more attempts available
                 //
-                if (int.TryParse(userResponse, out userInteger))
+                if (attempts <= maxAttempts)
                 {
+                    Console.Write(prompt);
+                    userResponse = Console.ReadLine();
+
                     //
-                    // input is in range
+                    // input is an Integer
                     //
-                    if (userInteger >= minValue && userInteger <= maxValue)
+                    if (int.TryParse(userResponse, out userInteger))
                     {
-                        validInput = true;
+                        //
+                        // input is in range
+                        //
+                        if (userInteger >= minValue && userInteger <= maxValue)
+                        {
+                            validInput = true;
+                        }
+                        //
+                        // input is not in range
+                        //
+                        else if (true)
+                        {
+                            Console.Write($"It appears you did not enter an integer between {minValue} and {maxValue}.");
+                            Console.WriteLine();
+                        }
                     }
                     //
-                    // input is not in range
+                    // input is not an Integer
                     //
                     else
                     {
-                        Console.WriteLine($"It appears you did not enter an integer between {minValue} and {maxValue}. Please try again.");
+                        Console.Write("It appears you did not enter an integer.");
+                        Console.WriteLine();
+                    }
+
+                    attempts++;
+
+                    if (!validInput && attempts <= maxAttempts)
+                    {
+                        Console.WriteLine("Please try again.");
+                    }
+                    else
+                    {
                         Console.WriteLine();
                     }
                 }
-                //
-                // input is not an Integer
-                //
                 else
                 {
-                    Console.WriteLine("It appears you did not enter an integer. Please try again.");
-                    Console.WriteLine();
+                    maxAttemptsExceeded = true;
                 }
-
-                attempts++;
             }
 
             return userInteger;
