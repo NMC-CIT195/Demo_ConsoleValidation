@@ -18,15 +18,21 @@ namespace Demo_ConsoleValidation
             bool maxAttemptsExceeded;
             int userInteger;
 
-            userInteger = ConsoleValidator.GetIntegerFromUser(1, 10, 2, "Enter an integer.", out maxAttemptsExceeded);
+            //
+            // (minimum value, maximum value, number of attempts allowed, text prompt, return number of attempt status)
+            //
+            userInteger = ConsoleValidator.GetIntegerFromUser(1, 10, 3, "cats", out maxAttemptsExceeded);
 
+            //
+            // echo status to user
+            //
             if (!maxAttemptsExceeded)
             {
                 Console.WriteLine($"You have entered {userInteger}.");
             }
             else
             {
-                Console.WriteLine("It appears you have exceeded the maximum number of attempts allowed.");
+                Console.WriteLine("Your are obviously a mere mortal and will be excomunicated from The Order!");
             }
 
             Console.ReadKey();
