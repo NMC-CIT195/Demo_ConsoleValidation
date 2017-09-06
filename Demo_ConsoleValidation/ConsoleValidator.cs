@@ -298,7 +298,6 @@ namespace Demo_ConsoleValidation
             bool validInput = false;
             maxAttemptsExceeded = false;
             string userResponse = "";
-            string feedbackMessage = "";
             int attempts = 1;
 
             while (!validInput && !maxAttemptsExceeded)
@@ -315,47 +314,36 @@ namespace Demo_ConsoleValidation
                     validInput = true;
                 }
                 //
-                // input is not valid
+                // input is invalid, but more attempts available
                 //
-                else if (true)
-                {
-                    feedbackMessage = $"\"{userResponse}\" is not a valid response.";
-                }
-
-
-                if (!validInput && attempts <= maxAttempts)
+                else
                 {
                     Console.WriteLine($"You entered: {userResponse}");
-                    Console.WriteLine(feedbackMessage);
-
+                                        Console.WriteLine($"\"{userResponse}\" is not a valid response.");
+                    
+                    //
+                    // more attempts available 
+                    //
                     if (attempts < maxAttempts)
                     {
-                        Console.WriteLine($"\"{userResponse}\" is not a valid response.");
                         Console.WriteLine($"Please enter either \"Yes\" or \"No\".");
                         Console.WriteLine("Press any key to try again.");
-                        Console.ReadKey();
                     }
+                    //
+                    // all attempts used
+                    //
                     else
                     {
                         Console.WriteLine("It appears you have exceeded the maximum number of attempts allowed.");
                         Console.WriteLine("Press any key to continue.");
-                        Console.ReadKey();
+                        maxAttemptsExceeded = true;
                     }
 
+                    Console.ReadKey();
                     Console.Clear();
-                }
-                else
-                {
-                    Console.WriteLine();
                 }
 
                 attempts++;
-
-                if (attempts > maxAttempts)
-                {
-                    maxAttemptsExceeded = true;
-                }
-
             }
 
             return userResponse;
