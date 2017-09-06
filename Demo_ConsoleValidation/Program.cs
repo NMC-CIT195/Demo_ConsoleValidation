@@ -35,7 +35,7 @@ namespace Demo_ConsoleValidation
             }
             else
             {
-                Console.WriteLine("Your are obviously a mere mortal and will be excommunicated from The Order!");
+                Console.WriteLine("You are obviously a mere mortal and will be excommunicated from The Order!");
             }
 
             Console.ReadKey();
@@ -70,7 +70,7 @@ namespace Demo_ConsoleValidation
             }
             else
             {
-                Console.WriteLine("Your are obviously a mere mortal and will be excommunicated from The Order!");
+                Console.WriteLine("You are obviously a mere mortal and will be excommunicated from The Order!");
             }
 
             Console.ReadKey();

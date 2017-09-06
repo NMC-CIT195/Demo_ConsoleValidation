@@ -52,7 +52,7 @@ namespace Demo_ConsoleValidation
                         //
                         // input is not in range
                         //
-                        else if (true)
+                        else
                         {
                             feedbackMessage = $"The number {userInteger} is not in the specified range.";
                         }
@@ -145,7 +145,7 @@ namespace Demo_ConsoleValidation
                         //
                         // input is not in range
                         //
-                        else if (true)
+                        else
                         {
                             feedbackMessage = $"The number {userInteger} is not at least {minValue}.";
                         }
@@ -237,7 +237,7 @@ namespace Demo_ConsoleValidation
                         //
                         // input is not in range
                         //
-                        else if (true)
+                        else
                         {
                             feedbackMessage = $"The number {userInteger} is not a positive integer.";
                         }
