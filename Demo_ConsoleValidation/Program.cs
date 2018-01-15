@@ -11,9 +11,9 @@ namespace Demo_ConsoleValidation
 
         static void Main(string[] args)
         {
-            TestIntegerMethod();
+            //TestIntegerMethod();
 
-            //TestYesNoMethod();
+            TestYesNoMethod();
         }
 
         private static void TestYesNoMethod()
